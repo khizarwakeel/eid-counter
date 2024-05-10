@@ -1,5 +1,5 @@
 
-const endDate = new Date("17 June 2024").getTime();
+const endDate = new Date("17 june 2024 ").getTime();
 
 const countDownInterval = setInterval(() => {
 
@@ -8,7 +8,7 @@ const countDownInterval = setInterval(() => {
 
     if (difference <= 0) {
         clearInterval(countDownInterval);
-        document.getElementById('countdown').innerHTML = 'Eid-ul-Adha 2024 has been celebrated.';
+        document.getElementById('celebratedDiv').innerHTML = 'Eid-ul-Adha 2024 has been celebrated.';
         return;
     }
 
