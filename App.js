@@ -1,33 +1,27 @@
 
-const endDate = new Date("June 17 2024").getTime();
+const endDate = new Date("17 June 2024").getTime();
 
-const countdownInterval = setInterval(() => {
-    
-    const now = new Date().getTime();
-    const difference = endDate - now;
+const countDownInterval = setInterval(() => {
+
+    const currentTime = new Date().getTime();
+    const difference = endDate - currentTime;
 
     if (difference <= 0) {
-        clearInterval(countdownInterval);
-        document.getElementById('countdown').innerHTML = 'Countdown expired!';
+        clearInterval(countDownInterval);
+        document.getElementById('countdown').innerHTML = 'Eid-ul-Adha 2024 has been celebrated.';
         return;
     }
 
-    let remainingTime = '';
     const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30));
-    const remainingDays = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-    const remainingHours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const remainingMinutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const remainingSeconds = Math.floor((difference % (1000 * 60)) / 1000);
+    const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    if (months > 0) {
-        remainingTime += months + ' month' + (months !== 1 ? 's ' : ' ');
-    }
-    if (remainingDays > 0) {
-        remainingTime += remainingDays + ' day' + (remainingDays !== 1 ? 's ' : ' ');
-    }
-    remainingTime += remainingHours + ' hour' + (remainingHours !== 1 ? 's ' : ' ');
-    remainingTime += remainingMinutes + ' minute' + (remainingMinutes !== 1 ? 's ' : ' ');
-    remainingTime += remainingSeconds + ' second' + (remainingSeconds !== 1 ? 's' : '');
+    document.getElementById('months').innerHTML = months > 0 ? months + ' month' + (months !== 1 ? 's ' : '') : '';
+    document.getElementById('days').innerHTML = days > 0 ? days + ' day' + (days !== 1 ? 's ' : '') : '';
+    document.getElementById('hours').innerHTML = hours + ' hour' + (hours !== 1 ? 's ' : '');
+    document.getElementById('minutes').innerHTML = minutes + ' minute' + (minutes !== 1 ? 's ' : '');
+    document.getElementById('seconds').innerHTML = seconds + ' second' + (seconds !== 1 ? 's' : '');
 
-    document.getElementById('countdown').innerHTML = remainingTime;
 }, 0);
